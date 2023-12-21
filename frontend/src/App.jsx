@@ -10,9 +10,9 @@ function App() {
   const [user, setUser] = useState(undefined);
 
   if (!user) {
-    return <AuthPage onAuth={(user) => setUser(user)} />;
+    return <AuthPage onAuth={(user) => setUser(user)} />;//create new user instance
   } else {
-    return <ChatsPage user={user} />;
+    return <ChatsPage user={user} />;//return existing user chats
   }
 }
 

@@ -2,18 +2,18 @@ import { useState } from "react";
 import axios from "axios";
 
 const AuthPage = (props) => {
-    const onSubmit = (e) => {
+    const onSubmit = (e) => { //action listener that triggers authentication of user
       e.preventDefault();
       const { value } = e.target[0];
       axios.post(
         'http://localhost:3001/authenticate',
         { username: value }
       )
-      .then((r) => props.onAuth({ ...r.data, secret: value }))
+      .then((r) => props.onAuth({ ...r.data, secret: value }))//succesful authentication
       .catch((e) => console.log("Auth Error", e))
     };
   
-    return (
+    return ( //building the chats page components
       <div className="background">
         <form onSubmit={onSubmit} className="form-card">
           <div className="form-title">Hello! 👋</div>
